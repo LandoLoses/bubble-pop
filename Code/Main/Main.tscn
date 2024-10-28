@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd5nxssueqosr"]
+[gd_scene load_steps=6 format=3 uid="uid://cd5nxssueqosr"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_he6eo"]
-[ext_resource type="PackedScene" uid="uid://bmduw1omvgqj8" path="res://Bubble/Bubble.tscn" id="2_3lgiv"]
+[ext_resource type="AudioStream" uid="uid://bqlfagxpptc6y" path="res://Sfx/pop_04.wav" id="3_wbkgg"]
+[ext_resource type="FontFile" uid="uid://dhes6cbhxkqev" path="res://Fonts/heav.ttf" id="4_60p8g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rs6r8"]
+content_margin_left = 30.0
+content_margin_top = 0.0
+content_margin_right = 30.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_tid5c"]
+font = ExtResource("4_60p8g")
+font_size = 30
+font_color = Color(0.752882, 0.645833, 0.705387, 1)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_he6eo")
@@ -9,11 +25,25 @@ script = ExtResource("1_he6eo")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="Bubble" parent="." instance=ExtResource("2_3lgiv")]
-position = Vector2(905, 487)
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wbkgg")
+volume_db = 1.0
 
-[node name="Bubble2" parent="." instance=ExtResource("2_3lgiv")]
-position = Vector2(423, 165)
+[node name="BubbleNode" type="Node2D" parent="."]
 
-[node name="Bubble3" parent="." instance=ExtResource("2_3lgiv")]
-position = Vector2(345, 550)
+[node name="Scoreboard" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.401
+anchor_right = 0.401
+offset_left = 0.0479736
+offset_top = -1.0
+offset_right = 219.048
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rs6r8")
+
+[node name="ScoreUI" type="Label" parent="Scoreboard"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_tid5c")
+horizontal_alignment = 1
