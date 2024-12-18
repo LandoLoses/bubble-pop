@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsj3meaj40ixj"]
+
+[ext_resource type="Script" path="res://BubbleUI/BubbleUI.gd" id="1_pmll3"]
+[ext_resource type="Texture2D" uid="uid://brsy70u843wyn" path="res://Textures/bubble.png" id="2_wj47o"]
+[ext_resource type="BitMap" uid="uid://dxxq4y0d3w2mi" path="res://BubbleUI/button_mask.png" id="3_olckt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fm78p"]
+
+[node name="BubbleUI" type="Node2D"]
+script = ExtResource("1_pmll3")
+
+[node name="Button" type="Button" parent="."]
+process_mode = 4
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -54.5
+offset_right = 65.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fm78p")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_fm78p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fm78p")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_fm78p")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fm78p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_fm78p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fm78p")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_fm78p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fm78p")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_fm78p")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fm78p")
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wj47o")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 63.0
+offset_top = -27.0
+offset_right = 294.0
+offset_bottom = 191.0
+texture_normal = ExtResource("2_wj47o")
+texture_click_mask = ExtResource("3_olckt")
+ignore_texture_size = true
+stretch_mode = 0
