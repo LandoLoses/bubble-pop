@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd5nxssueqosr"]
+[gd_scene load_steps=6 format=3 uid="uid://cd5nxssueqosr"]
 
 [ext_resource type="Script" uid="uid://bc8jplnsv8aw7" path="res://Main/main.gd" id="1_83ytx"]
 [ext_resource type="AudioStream" uid="uid://b48hee77obvx8" path="res://Sfx/pop_07.wav" id="2_83ytx"]
+[ext_resource type="FontFile" uid="uid://by1t80mnq4jeq" path="res://Fonts/frau2.ttf" id="3_amygn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ps1la"]
+content_margin_left = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 5.0
+bg_color = Color(0.513609, 0.613057, 0.709554, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.22218, 0.438144, 0.621574, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_6aewd"]
+font = ExtResource("3_amygn")
+font_size = 30
+font_color = Color(0.203922, 0.498039, 1, 1)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_83ytx")
@@ -12,3 +33,21 @@ autostart = true
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_83ytx")
+
+[node name="UI" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -10.0
+offset_top = 17.0
+offset_right = 10.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ps1la")
+
+[node name="ScoreUI" type="Label" parent="UI"]
+layout_mode = 2
+text = "0123456789"
+label_settings = SubResource("LabelSettings_6aewd")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,6 +1,7 @@
 extends Area2D
 class_name Bubble
 
+var main: Main #null
 var audio: AudioStreamPlayer2D 
 var speed: float = 200.0 # px / sec.
 
@@ -17,11 +18,11 @@ func OnClicked(_viewport, event, _shape):
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				Pop()
-				print("Player clicked down.")
-			else:
-				print("Player clicked up.")
-				
+
+
 func Pop():
 	audio.position = position
+	audio.pitch_scale = randf_range(0.8, 1.2)
 	audio.play()
+	main.IncreaseScore()
 	queue_free()
